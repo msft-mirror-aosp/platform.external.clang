@@ -43,7 +43,7 @@ func clangForceBuildLlvmComponents(ctx android.LoadHookContext) {
 	}
 	p := &props{}
 
-	if ctx.AConfig().IsEnvTrue("FORCE_BUILD_LLVM_COMPONENTS") {
+	if ctx.Config().IsEnvTrue("FORCE_BUILD_LLVM_COMPONENTS") {
 		p.Target.Host.Compile_multilib = proptools.StringPtr("both")
 		p.Multilib.Lib32.Suffix = proptools.StringPtr("_32")
 	}
