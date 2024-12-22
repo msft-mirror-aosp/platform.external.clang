@@ -48,7 +48,6 @@ cc_defaults {
     header_libs: ["clang-headers"],
 
     cflags: [
-        "-pedantic",
         "-Wno-cast-qual",
         "-Wno-long-long",
         "-Wno-unreachable-code-loop-increment",
