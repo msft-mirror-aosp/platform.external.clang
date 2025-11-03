@@ -35,11 +35,12 @@ var (
 	clangTblgen = pctx.HostBinToolVariable("clangTblgen", "clang-tblgen")
 
 	tblgenRule = pctx.StaticRule("tblgenRule", blueprint.RuleParams{
-		Depfile:     "${out}.d",
-		Deps:        blueprint.DepsGCC,
-		Command:     "${clangTblgen} ${includes} ${genopt} -d ${out}.d -o ${out} ${in}",
-		CommandDeps: []string{"${clangTblgen}"},
-		Description: "Clang TableGen $in => $out",
+		Depfile:         "${out}.d",
+		Deps:            blueprint.DepsGCC,
+		Command:         "${clangTblgen} ${includes} ${genopt} -d ${out}.d -o ${out} ${in}",
+		CommandDeps:     []string{"${clangTblgen}"},
+		Description:     "Clang TableGen $in => $out",
+		SandboxDisabled: true,
 	}, "includes", "genopt")
 )
 
